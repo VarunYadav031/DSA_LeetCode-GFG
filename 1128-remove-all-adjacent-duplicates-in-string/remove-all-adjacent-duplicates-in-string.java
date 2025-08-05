@@ -9,9 +9,9 @@ class Solution {
         }
       }
       StringBuilder result=new StringBuilder();
-      for(char ch:stack){
-        result.append(ch);
+      while(!stack.isEmpty()){
+        result.append(stack.pop());
       }
-      return result.toString();
+      return result.reverse().toString();
     }
 }
