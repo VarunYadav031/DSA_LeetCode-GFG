@@ -12,15 +12,16 @@ class Node{
 class Solution {
     public Node insertAtEnd(Node head, int x) {
         // code here
-        Node newnode=new Node(x);
+        Node newNode=new Node(x);
         if(head==null){
-           return newnode;
+            return newNode;
         }
-        Node curr=head;
-       while(curr.next!=null){
-           curr=curr.next;
-       }
-       curr.next=newnode;
-       return head;
+        Node temp=head;
+        
+        while(temp.next != null){
+            temp=temp.next;
+        }
+        temp.next=newNode;
+        return head;
     }
 }
