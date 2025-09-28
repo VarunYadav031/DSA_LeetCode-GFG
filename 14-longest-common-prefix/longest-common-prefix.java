@@ -9,7 +9,7 @@ class Solution {
         char[] last = strs[strs.length - 1].toCharArray();
 
         for(int i=0;i<first.length;i++){
-            if(first[i]==last[i]){
+            if(i<last.length && first[i]==last[i]){
                 
                 result.append(first[i]);
             }else{
