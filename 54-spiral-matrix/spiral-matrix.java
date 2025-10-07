@@ -21,18 +21,24 @@ class Solution {
             }
 
             // 3. Bottom row
-            if (srow < erow) {
+             if (srow < erow) {
                 for (int j = ecol - 1; j >= scol; j--) {
+                    if(srow==erow){
+                        break;
+                    }
                     ans.add(matrix[erow][j]);
                 }
             }
 
             // 4. Left column
-            if (scol < ecol) {
+             if (scol < ecol) {
                 for (int i = erow - 1; i > srow; i--) {
+                    if(scol==ecol){
+                        break;
+                    }
                     ans.add(matrix[i][scol]);
                 }
-            }
+             }
 
             srow++;
             erow--;
