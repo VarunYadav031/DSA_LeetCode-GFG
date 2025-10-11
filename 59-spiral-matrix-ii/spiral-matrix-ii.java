@@ -1,40 +1,43 @@
 class Solution {
     public int[][] generateMatrix(int n) {
-        int[][] matrix = new int[n][n];
-        int num = 1;
-        int top = 0, bottom = n - 1;
-        int left = 0, right = n - 1;
-
-        while (top <= bottom && left <= right) {
-            // Move right
-            for (int i = left; i <= right; i++) {
-                matrix[top][i] = num++;
-            }
-            top++;
-
-            // Move down
-            for (int i = top; i <= bottom; i++) {
-                matrix[i][right] = num++;
-            }
-            right--;
-
-            // Move left
-            if (top <= bottom) {
-                for (int i = right; i >= left; i--) {
-                    matrix[bottom][i] = num++;
-                }
-                bottom--;
-            }
-
-            // Move up
-            if (left <= right) {
-                for (int i = bottom; i >= top; i--) {
-                    matrix[i][left] = num++;
-                }
-                left++;
-            }
+       int [][]matrix=new int[n][n];
+       int srow=0;
+       int scol=0;
+       int erow=n-1;
+       int ecol=n-1;
+       int val=1;
+       while(srow<=erow && scol<=ecol){
+       //fill top of matrix
+       for(int j=scol;j<=ecol;j++){
+        matrix[srow][j]=val;
+        val++;
+       }
+       srow++;
+       //fill rightside of matrix
+       for(int i=srow;i<=erow;i++){
+        matrix[i][ecol]=val;
+        val++;
+       }
+       ecol--;
+       //fill buttom of matrix
+      if(srow<=erow){
+        for(int j=ecol;j>=scol;j--){
+            matrix[erow][j]=val;
+            val++;
         }
+      }
+        erow--;
+        if(scol<=ecol){
+        for(int i=erow;i>=srow;i--){
+            matrix[i][scol]=val;
+            val++;
+        }
+        scol++;
 
-        return matrix;
+      }
+    }
+       
+     return matrix;
+      
     }
 }
