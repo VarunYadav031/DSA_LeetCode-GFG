@@ -7,9 +7,9 @@ class Solution {
         while(end<s.length()){
           if(!ans.contains(s.charAt(end))){
             ans.add(s.charAt(end));
-           
+           max_length=Math.max(max_length,ans.size());
             end++;
-            max_length=Math.max(max_length,ans.size());
+            
             
           }else{
            ans.remove(Character.valueOf(s.charAt(start)));
