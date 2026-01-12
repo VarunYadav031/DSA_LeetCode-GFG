@@ -9,28 +9,25 @@
  * }
  */
 class Solution {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(0);  // एक dummy node जिससे result list शुरू होगी
-        ListNode current = dummy;
-
-        while (l1 != null && l2 != null) {
-            if (l1.val <= l2.val) {
-                current.next = l1;
-                l1 = l1.next;
-            } else {
-                current.next = l2;
-                l2 = l2.next;
-            }
-            current = current.next;
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode dummy=new ListNode(0);
+        ListNode current=dummy;
+        if(list1==null || list2==null)return list1==null? list2:list1;
+        while(list1!=null && list2!=null){
+          if(list1.val<list2.val){
+            dummy.next=list1;
+            list1=list1.next;
+          }else{
+             dummy.next=list2;
+            list2=list2.next;
+          }
+          dummy=dummy.next;
+          if(list1!=null){
+            dummy.next=list1;
+          }else{
+            dummy.next=list2;
+          }
         }
-
-        // जो भी list बची है उसे जोड़ दो
-        if (l1 != null) {
-            current.next = l1;
-        } else {
-            current.next = l2;
-        }
-
-        return dummy.next;  // dummy के next से हमारी merged sorted list शुरू होती है
+        return current.next;
     }
 }
