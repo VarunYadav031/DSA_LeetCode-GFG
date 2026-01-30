@@ -1,0 +1,18 @@
+/*
+class Node{
+    int data;
+    Node next;
+    Node(int a){  data = a; next = null; }
+}*/
+
+class Solution {
+    public int getCount(Node head) {
+        int count=0;
+        Node curr=head;
+        while(curr!=null){
+            count +=1;
+            curr=curr.next;
+        }
+        return count;
+    }
+}
