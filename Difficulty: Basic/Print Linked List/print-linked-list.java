@@ -7,15 +7,15 @@ class Node {
         next = null;
     }
 }*/
-
 class Solution {
     public ArrayList<Integer> printList(Node head) {
-        ArrayList<Integer> result=new ArrayList<>();
-        Node current=head;
-        while(current!=null){
-          result.add(current.data);
-          current=current.next;
-        }
-        return result;
+        ArrayList<Integer>ans=new ArrayList<>();
+       Node curr=head;
+       while(curr!=null){
+        //System.out.println(curr.data);
+           ans.add(curr.data);
+           curr=curr.next;
+       }
+        return ans;
     }
 }
