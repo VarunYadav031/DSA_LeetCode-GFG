@@ -10,8 +10,8 @@ class Solution {
         int count=0;
         Node curr=head;
         while(curr!=null){
-            count +=1;
             curr=curr.next;
+            count++;
         }
         return count;
     }
