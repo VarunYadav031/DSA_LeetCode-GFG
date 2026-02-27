@@ -1,16 +1,19 @@
 class Solution {
     public static boolean areAnagrams(String s1, String s2) {
-        if(s1.length()!=s2.length()) return false;
-      int []freq=new int[26];
-      for(int i=0;i<s1.length();i++){
-          freq[s1.charAt(i)-'a']++;
-          freq[s2.charAt(i)-'a']--;
+      if(s1.length()!=s2.length()) return false;
+      int [] count=new int[26]; 
+      for(char ch:s1.toCharArray()){
+          count[ch-'a']++;
       }
-      for(int i=0;i<freq.length;i++){
-          if(freq[i]!=0){
+      for(char ch:s2.toCharArray()){
+          count[ch-'a']--;
+      }
+      for(int num:count){
+          if(num!=0){
               return false;
           }
-      } 
+      }
       return true;
+        
     }
 }
