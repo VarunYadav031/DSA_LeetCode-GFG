@@ -1,17 +1,18 @@
-/*Complete the function below*/
 class Solution {
-    public static int convertFive(int n) {
-       int result=0;
+    int convertfive(int num) {
+        if (num==0)return 5;
+       int newnum=0;
        int place=1;
-       if(n==0)return 5;
-       while(n!=0){
-           int digit=n%10;
-           if(digit==0)
-           digit=5;
-           result +=digit*place;
-           place *=10;
-           n=n/10;
-       }
-       return result;
+    
+        while(num>0){
+            int d=num%10;
+            if(d==0){
+                d=5;
+            }
+            newnum=newnum+d*place;
+            place *=10;
+            num=num/10;
+        }
+        return newnum;
     }
 }
