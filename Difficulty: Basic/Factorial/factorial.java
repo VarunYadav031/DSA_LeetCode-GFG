@@ -1,11 +1,11 @@
 class Solution {
-    // Function to calculate factorial of a number.
+   
     int factorial(int n) {
-        int fact=1;
-       for(int i=1;i<=n;i++){
-           fact *=i;
+       int fact=1;
+       while(n!=0){
+           fact*=n;
+           n--;
        }
-        return fact;
+       return fact;
     }
-    
 }
