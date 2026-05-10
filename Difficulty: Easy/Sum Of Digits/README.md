@@ -1,4 +1,4 @@
-<h2><a href="https://www.geeksforgeeks.org/problems/sum-of-digits1742/1">Sum Of Digits</a></h2><h3>Difficulty Level : Difficulty: Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a positive number <strong>n</strong>. Find the <strong>sum</strong> of all the digits of n.</span></p>
+<h2><a href="https://www.geeksforgeeks.org/problems/sum-of-digits1742/1">Sum Of Digits</a></h2><h3>Difficulty Level : Difficulty: Easy</h3><hr><div class="problems_problem_content__Xm_eO" style="--text-color: var(--problem-text-color);"><p><span style="font-size: 18px;">Given a positive number <strong>n</strong>. Find the <strong>sum</strong> of all the digits of n.</span></p>
 <p><span style="font-size: 18px;"><strong>Examples:</strong></span></p>
 <pre><span style="font-size: 18px;"><strong>Input: </strong>n = 687<strong>
 Output: </strong>21<strong>
