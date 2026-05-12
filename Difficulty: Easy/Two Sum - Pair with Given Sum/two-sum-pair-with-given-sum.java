@@ -1,13 +1,14 @@
 class Solution {
     boolean twoSum(int arr[], int target) {
-       for(int i=0;i<arr.length;i++){
-           for(int j=i+1;j<arr.length;j++){
-      if(arr[i]+arr[j]==target){
-         return true;
-           }
-           
-       }
-       }
+        int n= arr.length;
+        HashSet<Integer> set=new HashSet<>();
+        for(int num:arr){
+            if(set.contains(target-num)){
+                return true;
+            }
+            set.add(num);
+        }
         return false;
+        
     }
 }
