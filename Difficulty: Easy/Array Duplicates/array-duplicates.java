@@ -1,21 +1,15 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Solution {
-    public List<Integer> findDuplicates(int[] arr) {
-        List<Integer> result = new ArrayList<>();
-
-        for (int i = 0; i < arr.length; i++) {
-            int x = Math.abs(arr[i]);
-            int index = x - 1;
-
-            if (arr[index] < 0) {
-                result.add(x);
-            } else {
-                arr[index] = -arr[index];
+    public ArrayList<Integer> findDuplicates(int[] arr) {
+        
+        ArrayList<Integer> ans=new ArrayList<>();
+        HashSet<Integer> set=new HashSet<>();
+        for(int num:arr){
+            if(!set.contains(num)){
+                set.add(num);
+            }else{
+                ans.add(num);
             }
         }
-
-        return result;
+        return ans;
     }
 }
