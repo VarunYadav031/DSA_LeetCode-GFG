@@ -13,23 +13,22 @@ class Node
 class Solution {
     // Function to remove duplicates from unsorted linked list.
     public Node removeDuplicates(Node head) {
-        if(head==null || head.next==null){
-            return head;
-        }
-        HashSet<Integer> ans=new HashSet<>();
-       Node prev=head;
-       Node curr=head.next;
-       ans.add(prev.data);
+       if(head==null && head.next==null){
+           return head;
+       }
+       Node curr=head;
+       Node prev=null;
+       HashSet<Integer>set=new HashSet<>();
        while(curr!=null){
-           if(!ans.contains(curr.data)){
-               ans.add(curr.data);
-               prev.next=curr;
+           if(set.contains(curr.data)){
+               prev.next=curr.next;
+               
+           }else{
+               set.add(curr.data);
                prev=curr;
            }
-               curr=curr.next;
+           curr=curr.next;
        }
-       prev.next=null;
-       return head;
-        
+        return head;
     }
 }
