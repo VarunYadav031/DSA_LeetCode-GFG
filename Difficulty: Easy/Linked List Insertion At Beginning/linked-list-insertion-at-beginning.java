@@ -1,0 +1,21 @@
+/*
+class Node {
+    int data;
+    Node next;
+
+    Node(int x) {
+        data = x;
+        next = null;
+    }
+}
+*/
+
+class Solution {
+    public Node insertAtFront(Node head, int x) {
+        Node newNode=new Node(x);
+        Node curr=head;
+        newNode.next=curr;
+        return newNode;
+        
+    }
+}
