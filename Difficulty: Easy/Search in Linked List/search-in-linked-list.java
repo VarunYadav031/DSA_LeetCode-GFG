@@ -1,21 +1,20 @@
-// User function Template for Java
-
-/* Node of a linked list
+/*
   class Node {
    int data;
     Node next;
+
     Node(int d)  { data = d;  next = null; }
 }
 */
 class Solution {
-    static boolean searchKey(int n, Node head, int key) {
-
-        Node temp=head;
-        while(temp != null){
-            if(temp.data==key){
+    public boolean searchKey(Node head, int key) {
+        Node curr=head;
+        while(curr!=null){
+            if(curr.data==key){
                 return true;
             }
-          temp=temp.next; 
-        }return false;
+            curr=curr.next;
+        }
+        return false;
     }
 }
