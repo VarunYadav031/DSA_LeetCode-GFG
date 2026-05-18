@@ -1,18 +1,14 @@
 class Solution {
     public int[] countOddEven(int[] arr) {
-        int odd=0;
-        int even=0;
-        
+        int count_odd=0;
+        int count_even=0;
         for(int i=0;i<arr.length;i++){
             if(arr[i]%2==0){
-                even++;
+                count_even +=1;
             }else{
-                odd++;
+                count_odd +=1;
             }
         }
-        int []res=new int[2];
-        res[0]=odd;
-        res[1]=even;
-        return res;
+        return new int[]{count_odd,count_even};
     }
 }
