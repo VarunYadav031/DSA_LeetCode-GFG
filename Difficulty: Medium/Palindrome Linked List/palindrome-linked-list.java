@@ -11,38 +11,32 @@ class Node {
 
 class Solution {
     public boolean isPalindrome(Node head) {
-        if(head==null || head.next==null)return true;
-       //1st find middle of linkedList
-       Node midNode=findMid(head);
-       //2nd reverse the linkedlist
-       Node prev=null;
-       Node curr=midNode;
-       Node next;
-       while(curr!=null){
-           next=curr.next;
-           curr.next=prev;
-           prev=curr;
-           curr=next;
-       }
-       //3rd check left half equal right half
-        Node right=prev;
-        Node left=head;
-        while(right!=null){
-            if(right.data!=left.data){
-                return false;
-            }
-            right=right.next;
-            left=left.next;
-        }
-        return true;
-    }
-    public Node findMid(Node head){
+        if(head==null || head.next==null)return true;;
         Node slow=head;
-        Node fast=head;
+        Node fast=head.next;
         while(fast!=null && fast.next!=null){
             slow=slow.next;
             fast=fast.next.next;
         }
-        return slow;
+        Node prev=null;
+        Node curr=slow.next;
+        slow.next=null;
+        while(curr!=null){
+            Node nextNode=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=nextNode;
+        }
+        Node first=head;
+        Node second=prev;
+        while(second!=null){
+            if(first.data!=second.data){
+                return false;
+            }
+            first=first.next;
+            second=second.next;
+        }
+        return true;
     }
+    
 }
