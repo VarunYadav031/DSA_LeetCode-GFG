@@ -1,13 +1,14 @@
 class Solution {
     int maxSubarraySum(int[] arr) {
-        int n=arr.length;
-       int []prefix=new int[n];
-       prefix[0]=arr[0];
-       int ans=prefix[0];
-       for(int i=1;i<n;i++){
-           prefix[i]=Math.max(prefix[i-1]+arr[i],arr[i]);
-          ans= Math.max(ans,prefix[i]);
-       }
-        return ans;
+        int currsum=0;
+        int maxsum=Integer.MIN_VALUE;
+        for(int i=0;i<arr.length;i++){
+            currsum +=arr[i];
+            maxsum=Math.max(currsum,maxsum);
+            if(currsum<0){
+                currsum=0;
+            }
+        }
+        return maxsum;
     }
 }
