@@ -1,33 +1,24 @@
-import java.util.*;
-
 class Solution {
     public ArrayList<Integer> calculateSpan(int[] arr) {
-        ArrayList<Integer> span = new ArrayList<>();
-        Stack<Integer> s = new Stack<>();
-        
-        // First element ka span = 1
+        ArrayList<Integer> span=new ArrayList<>();
+        Stack<Integer> stack=new Stack<>();
+        int n=arr.length;
         span.add(1);
-        s.push(0);
-
-        for (int i = 1; i < arr.length; i++) {
-            int currPrice = arr[i];
-
-            while (!s.isEmpty() && arr[s.peek()] <= currPrice) {
-                s.pop();
+        stack.push(0);
+        for(int i=1;i<arr.length;i++){
+            int currprice=arr[i];
+            while(!stack.isEmpty() && arr[stack.peek()]<=currprice){
+                stack.pop();
             }
-
-            if (s.isEmpty()) {
-                span.add(i + 1);
-            } else {
-                int prevHigh = s.peek();
-                span.add(i - prevHigh);
+            if(stack.isEmpty()){
+                span.add(i+1);
+            }else{
+                int prevhigh=stack.peek();
+                span.add(i-prevhigh);
             }
-
-            s.push(i);
+            stack.push(i);
+        
         }
-
         return span;
     }
-
-   
 }
