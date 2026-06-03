@@ -6,7 +6,7 @@ class Solution {
       for(int i=0;i<arr.length;i++){
           sum +=arr[i];
       }
-        long missingno=actualsum-sum;
-        return (int) missingno;
+      long missingno=actualsum-sum;
+      return (int) missingno;
     }
 }
