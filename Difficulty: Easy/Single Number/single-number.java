@@ -2,11 +2,10 @@
 
 class Solution {
     int getSingle(int arr[]) {
-        // code here
-        int n=arr.length;
+         
         int result=0;
-        for(int val:arr ){
-            result=result^val;
+        for(int num:arr){
+            result=result^num;
         }
         return result;
     }
