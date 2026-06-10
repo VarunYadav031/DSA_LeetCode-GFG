@@ -15,16 +15,16 @@
  */
 class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
-        // Base case: dono null hain
-        if (p == null && q == null) return true;
-        
-        // Agar sirf ek null hai
-        if (p == null || q == null) return false;
-        
-        // Current node ka value check
-        if (p.val != q.val) return false;
-        
-        // Recursively check left & right subtree
-        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+        if(p==null && q==null){
+            return true;
+        }
+        if(p==null || q==null){
+            return false;
+        }
+        if(p.val!=q.val){
+            return false;
+        }
+        return isSameTree(p.left,q.left) &&
+               isSameTree(p.right,q.right);
     }
 }
