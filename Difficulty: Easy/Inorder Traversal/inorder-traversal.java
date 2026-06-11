@@ -11,14 +11,19 @@ class Node {
 class Solution {
     public ArrayList<Integer> inOrder(Node root) {
         ArrayList<Integer>ans=new ArrayList<>();
-        helper(root,ans);
+        inOrderhelper(root,ans);
         return ans;
+       
         
     }
-    public static void helper(Node root,ArrayList<Integer>ans){
-        if(root==null) return ;
-        helper(root.left,ans);
+    public void inOrderhelper(Node root,ArrayList<Integer>ans){
+        if(root==null){
+            return;
+        }
+        inOrderhelper(root.left,ans);
         ans.add(root.data);
-        helper(root.right,ans);
+        inOrderhelper(root.right,ans);
+        
+        
     }
 }
