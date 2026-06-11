@@ -1,35 +1,33 @@
-/*
+/* A binary tree Node
 class Node {
-    int data;
-    Node left, right;
+    public int data;
+    public Node left;
+    public Node right;
 
-    Node(int item) {
-        data = item;
-        left = right = null;
+    // Constructor
+    public Node(int val) {
+        data = val;
+        left = null;
+        right = null;
     }
-}
+};
 */
-import java.util.*;
+
 class Solution {
-    public ArrayList<ArrayList<Integer>> levelOrder(Node root) {
-      ArrayList<ArrayList<Integer>>ans=new ArrayList<>();
-      Queue<Node>q=new LinkedList<>();
-      q.add(root);
-      while(!q.isEmpty()){
-          int size=q.size();
-          ArrayList<Integer>level=new ArrayList<>();
-          for(int i=0;i<size;i++){
-              Node curr=q.remove();
-              level.add(curr.data);
-              if(curr.left!=null){
-                  q.add(curr.left);
-              }
-              if(curr.right!=null){
-                   q.add(curr.right);
-              }
-          }
-          ans.add(level);
-      }
-      return ans;
+    public ArrayList<Integer> levelOrder(Node root) {
+        ArrayList<Integer>ans=new ArrayList<>();
+        Queue<Node>q=new LinkedList<>();
+        q.add(root);
+        while(!q.isEmpty()){
+            Node temp=q.poll();
+            ans.add(temp.data);
+            if(temp.left!=null){
+                q.add(temp.left);
+            }
+            if(temp.right!=null){
+                q.add(temp.right);
+            }
+        }
+        return ans;
     }
 }
