@@ -1,11 +1,13 @@
 class Solution {
     public boolean isSorted(int[] arr) {
-        for(int i=0;i<arr.length-1;i++){
-           if(arr[i]>arr[i+1]) {
-               return false;
-           }
-            
+        return helper(arr,0);
+        
+    }
+    public boolean helper(int[] arr,int i){
+        if(i==arr.length-1) return true;
+        if(arr[i]>arr[i+1]){
+            return false;
         }
-        return true;
+        return helper(arr,i+1);
     }
 }
