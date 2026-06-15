@@ -1,23 +1,21 @@
 class Solution {
     public double myPow(double x, int n) {
-        long N = n;   // convert to long
-        if (N < 0) {
-            x = 1 / x;
-            N = -N;
+        long N=n;
+        if(n<0){
+            x=1/x;
+            N=-N;
         }
-
-        return fastPow(x, N);
+        return power(x,N);
     }
-
-    private double fastPow(double x, long n) {
-        if (n == 0) return 1.0;
-
-        double half = fastPow(x, n / 2);
-        double hpsquare = half * half;
-
-        if (n % 2 != 0) {
-            hpsquare = x * hpsquare;
+    public double power(double x,long n){
+        if(n==0)return 1;
+        double halfpow=power(x,n/2);
+        double halfpowsq=halfpow*halfpow;
+        if(n%2!=0){
+          halfpowsq=x*halfpow*halfpow;  
         }
-        return hpsquare;
+        // double xnm1=power(x,n-1);
+        // double xn=x*xnm1;
+        return halfpowsq;
     }
 }
