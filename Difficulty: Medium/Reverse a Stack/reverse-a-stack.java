@@ -1,22 +1,26 @@
 class Solution {
     public static void reverseStack(Stack<Integer> st) {
-      if(st.isEmpty()){
-          return ;
-      }
-      int top=st.pop();
-      reverseStack(st);
-      pushAtBottom(st,top);
-      
+        if(st.isEmpty()){
+            return;
+        }
+       int top=st.pop();
+       reverseStack(st);
+       pushAtButtom(st,top);
         
     }
-    public static void pushAtBottom(Stack<Integer> st,int x){
+    public static void pushAtButtom(Stack<Integer>st,int x){
+       
         if(st.isEmpty()){
             st.push(x);
-            return ;
+            return;
         }
+        
+        
         int top=st.pop();
-        pushAtBottom(st,x);
+        pushAtButtom(st,x);
         st.push(top);
-        return ;
+           
+        
     }
+    
 }
