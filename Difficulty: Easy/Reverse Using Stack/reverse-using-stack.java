@@ -1,19 +1,18 @@
-import java.util.*;
 class Solution {
     public String reverse(String S) {
-        // code here
-        Stack <Character>s=new Stack<>();
-        int indx=0;
-        while(indx<S.length()){
-            s.push(S.charAt(indx));
-            indx++;
+        Stack<Character>s=new Stack<>();
+        int i=0;
+        while(i<S.length()){
+            s.push(S.charAt(i));
+            i++;
         }
-        StringBuilder result=new StringBuilder(" ");
+        StringBuilder sb=new StringBuilder();
+        
         while(!s.isEmpty()){
-            char curr=s.pop();
-            result.append(curr);
-            
+            char top=s.pop();
+            sb.append(top);
         }
-        return result.toString();
+        return sb.toString();
+        
     }
 }
