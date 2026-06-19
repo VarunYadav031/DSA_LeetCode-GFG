@@ -14,15 +14,19 @@ class Node {
 
 class Solution {
     public ArrayList<Integer> preOrder(Node root) {
-    ArrayList<Integer>ans=new ArrayList<>();
-    helper(root,ans);
-    return ans;
-    
+        ArrayList<Integer>ans=new ArrayList<>();
+       preorderhelper(root,ans);
+       return ans;
+        
     }
-    public static void helper(Node root,ArrayList<Integer>ans){
-        if(root==null) return ;
+    public static void preorderhelper(Node root,ArrayList<Integer>ans){
+        if(root==null){
+            return ;
+            
+        }
         ans.add(root.data);
-        helper(root.left,ans);
-        helper(root.right,ans);
+        preorderhelper(root.left,ans);
+        preorderhelper(root.right,ans);
     }
+    
 }
