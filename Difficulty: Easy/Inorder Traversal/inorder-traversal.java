@@ -11,19 +11,16 @@ class Node {
 class Solution {
     public ArrayList<Integer> inOrder(Node root) {
         ArrayList<Integer>ans=new ArrayList<>();
-        inOrderhelper(root,ans);
+        helperInorder(root,ans);
         return ans;
-       
         
     }
-    public void inOrderhelper(Node root,ArrayList<Integer>ans){
+    public static void helperInorder(Node root,ArrayList<Integer>ans){
         if(root==null){
             return;
         }
-        inOrderhelper(root.left,ans);
+        helperInorder(root.left,ans);
         ans.add(root.data);
-        inOrderhelper(root.right,ans);
-        
-        
+        helperInorder(root.right,ans);
     }
 }
