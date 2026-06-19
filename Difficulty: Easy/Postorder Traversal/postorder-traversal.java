@@ -11,15 +11,19 @@ class Node {
 
 class Solution {
     public ArrayList<Integer> postOrder(Node root) {
-       ArrayList<Integer>ans=new ArrayList<>();
-       helper(root,ans);
-       return ans;
+        ArrayList<Integer>ans=new ArrayList<>();
+        helperpostorder(root,ans);
+        return ans;
         
     }
-    public static void helper(Node root,ArrayList<Integer>ans){
-        if(root==null)return;
-        helper(root.left,ans);
-        helper(root.right,ans);
+    public static void helperpostorder(Node root,ArrayList<Integer>ans){
+        if(root==null){
+            return;
+        }
+        helperpostorder(root.left,ans);
+        
+        helperpostorder(root.right,ans);
         ans.add(root.data);
+        
     }
 }
