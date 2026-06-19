@@ -15,10 +15,13 @@ class Node {
 
 class Solution {
     static int sumBT(Node root) {
+       if(root==null){
+           return 0;
+       }
+       int ls=sumBT(root.left);
+       int rs=sumBT(root.right);
+       int sum=ls+rs+root.data;
+       return sum;
         
-        if(root==null)return 0;
-       
-         return root.data +sumBT(root.left)+sumBT(root.right);
-       
     }
 }
