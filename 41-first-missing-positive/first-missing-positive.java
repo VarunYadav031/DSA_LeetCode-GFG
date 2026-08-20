@@ -1,31 +1,26 @@
 class Solution {
     public int firstMissingPositive(int[] nums) {
-
-        int n = nums.length;
-
-        // Put every number at its correct index
-        for (int i = 0; i < n; i++) {
-
-            while (nums[i] >= 1 &&
-                   nums[i] <= n &&
-                   nums[nums[i] - 1] != nums[i]) {
-
-                int temp = nums[i];
-
-                nums[i] = nums[temp - 1];
-
-                nums[temp - 1] = temp;
-            }
+        int n= nums.length;
+       for(int i=0;i<n;i++){
+        if(nums[i]<=0 || nums[i]>=(n+1)){
+            nums[i]=n+1;
         }
-
-        // Find first missing positive
-        for (int i = 0; i < n; i++) {
-
-            if (nums[i] != i + 1) {
-                return i + 1;
-            }
+       }
+       for(int i=0;i<n;i++) {
+        int element=Math.abs(nums[i]);
+        if(element==n+1){
+            continue;
         }
-
-        return n + 1;
+        int seat=element-1;
+        if(nums[seat]>0){
+            nums[seat]=-nums[seat];
+        }
+       }
+       for(int i=0;i<n;i++){
+        if(nums[i]>0){
+            return i+1;
+        }
+       }
+        return n+1;
     }
 }
