@@ -1,51 +1,39 @@
-import java.util.*;
-
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
-        ArrayList<Integer> ans = new ArrayList<>();
-        int n = matrix.length;
-        int m = matrix[0].length;
-
-        int srow = 0, erow = n - 1;
-        int scol = 0, ecol = m - 1;
-
-        while (srow <= erow && scol <= ecol) {
-            // 1. Top row
-            for (int j = scol; j <= ecol; j++) {
-                ans.add(matrix[srow][j]);
+        int startrow=0;
+        int startcol=0;
+        int endrow=matrix.length-1;
+        int endcol=matrix[0].length-1;
+        ArrayList<Integer>list=new ArrayList<>();
+        while(startrow<=endrow && startcol<=endcol){
+            // top
+            for(int j=startcol;j<=endcol;j++){
+               list.add(matrix[startrow][j]);
             }
-
-            // 2. Right column
-            for (int i = srow + 1; i <= erow; i++) {
-                ans.add(matrix[i][ecol]);
+            //right
+            for(int i=startrow+1;i<=endrow;i++){
+                list.add(matrix[i][endcol]);
             }
-
-            // 3. Bottom row
-             if (srow < erow) {
-                for (int j = ecol - 1; j >= scol; j--) {
-                    if(srow==erow){
-                        break;
-                    }
-                    ans.add(matrix[erow][j]);
+            //buttom
+            for(int j=endcol-1;j>=startcol;j--){
+                if(startrow==endrow){
+                    break;
                 }
+                list.add(matrix[endrow][j]);
             }
-
-            // 4. Left column
-             if (scol < ecol) {
-                for (int i = erow - 1; i > srow; i--) {
-                    if(scol==ecol){
-                        break;
-                    }
-                    ans.add(matrix[i][scol]);
+            // left
+            for(int i=endrow-1;i>=startrow+1;i--){
+                if(startcol==endcol){
+                    break;
                 }
-             }
-
-            srow++;
-            erow--;
-            scol++;
-            ecol--;
+                list.add(matrix[i][startcol]);
+            }
+            startcol++;
+            startrow++;
+            endcol--;
+            endrow--;
+            
         }
-
-        return ans;
+        return list;
     }
 }
