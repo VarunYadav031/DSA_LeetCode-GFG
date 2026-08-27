@@ -1,42 +1,33 @@
-import java.util.*;
-
 class Solution {
     public int largestRectangleArea(int[] heights) {
-        int n = heights.length;
-        int[] nsr = new int[n];  // next smaller to right
-        int[] nsl = new int[n];  // next smaller to left
-        Stack<Integer> s = new Stack<>();
-
-        // Next Smaller Right
-        for (int i = n - 1; i >= 0; i--) {
-            while (!s.isEmpty() && heights[s.peek()] >= heights[i]) {
+        int n=heights.length;
+        int[]ls=new int[n];
+        int[]rs=new int[n];
+        Stack<Integer>s=new Stack<>();
+        for(int i=n-1;i>=0;i--){
+            while(!s.isEmpty() && heights[i]<=heights[s.peek()]){
                 s.pop();
             }
-            nsr[i] = s.isEmpty() ? n : s.peek();
+            rs[i]=s.isEmpty()? n:s.peek();
             s.push(i);
         }
-
-        // Clear stack
-        s = new Stack<>();
-
-        // Next Smaller Left
-        for (int i = 0; i < n; i++) {
-            while (!s.isEmpty() && heights[s.peek()] >= heights[i]) {
+        while(!s.isEmpty()){
+            s.pop();
+        }
+        for(int i=0;i<n;i++){
+            while(!s.isEmpty() && heights[i]<heights[s.peek()]){
                 s.pop();
             }
-            nsl[i] = s.isEmpty() ? -1 : s.peek();
+            ls[i]=s.isEmpty()? -1:s.peek();
             s.push(i);
         }
-
-        // Find max area
-        int maxArea = 0;
-        for (int i = 0; i < n; i++) {
-            int height = heights[i];
-            int width = nsr[i] - nsl[i] - 1;
-            int currArea = height * width;
-            maxArea = Math.max(maxArea, currArea);
+        int maxarea=0;
+        
+        for(int i=0;i<n;i++){
+            int width=rs[i]-ls[i]-1;
+            int currarea=width*heights[i];
+            maxarea=Math.max(currarea,maxarea);
         }
-
-        return maxArea;
+        return maxarea;
     }
 }
