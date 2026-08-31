@@ -11,13 +11,12 @@ class Node{
 */
 class Solution {
     public int getCount(Node head) {
-        Node curr=head;
-        int count=0;
-        while(curr!=null){
-            count +=1;
-            curr=curr.next;
-        }
+       int count=0;
+       Node curr=head;
+       while(curr!=null){
+           count++;
+           curr=curr.next;
+       }
         return count;
-        
     }
 }
